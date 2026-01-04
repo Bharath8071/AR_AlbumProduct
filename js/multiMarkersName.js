@@ -11,15 +11,19 @@ AFRAME.registerComponent('markers_start',{
 		var sceneEl = document.querySelector('a-scene');
 		
 		//list of the markers
-		for(var i=1; i<19; i++)
-		{
-			var url="resources/markers/pattern-Individual_Blocks-"+i+".patt";
-			markersURLArray.push(url);
-			markersNameArray.push('Marker_'+i);
-			//console.log(url);
-		}
+		// for(var i=1; i<19; i++)
+		// {
+		// 	var url="resources/markers/pattern-Individual_Blocks-"+i+".patt";
+		// 	markersURLArray.push(url);
+		// 	markersNameArray.push('Marker_'+i);
+		// 	//console.log(url);
+		// }
 
-		for(var k=0; k<18; k++)
+		// Single marker setup
+		markersURLArray.push("resources/markers/target.patt");
+		markersNameArray.push("D5-A2");
+
+		for(var k=0; k<1; k++)
 		{
 			var markerEl = document.createElement('a-marker');
 			markerEl.setAttribute('type','pattern');
@@ -33,7 +37,7 @@ AFRAME.registerComponent('markers_start',{
 			var textEl = document.createElement('a-entity');
 			
 			textEl.setAttribute('id','text');
-			textEl.setAttribute('text',{color: 'red', align: 'center', value:markersNameArray[k], width: '5.5'});
+			textEl.setAttribute('text',{color: 'red', align: 'center', value: "MARKER DETECTED", width: '5.5'});
 			textEl.object3D.position.set(0, 0.7, 0);
 			textEl.object3D.rotation.set(-90, 0, 0);
 
