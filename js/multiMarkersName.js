@@ -36,13 +36,13 @@ AFRAME.registerComponent('markers_start',{
 
 			// Create a 3D model (CORRECT TAG)
 			var modelEl = document.createElement('a-gltf-model');
-					
+
 			// Correct path (make sure this file exists)
-			modelEl.setAttribute('src', 'resources/models/pikachu_amiibo.glb');
-					
+			modelEl.setAttribute('src', '3dmodel/pikachu_amiibo.glb');
+
 			// Append FIRST (important)
 			markerEl.appendChild(modelEl);
-					
+
 			// Wait until model is loaded
 			modelEl.addEventListener('model-loaded', () => {
 			  console.log('MODEL LOADED');
@@ -51,7 +51,7 @@ AFRAME.registerComponent('markers_start',{
 			  modelEl.object3D.rotation.set(-90, 0, 0);
 			  modelEl.object3D.scale.set(0.3, 0.3, 0.3);
 			});
-			
+
 			// Optional rotation animation
 			modelEl.setAttribute('animation', {
 			  property: 'rotation',
@@ -60,7 +60,7 @@ AFRAME.registerComponent('markers_start',{
 			  dur: 4000,
 			  easing: 'linear'
 			});
-			
+
 		}
 	}
 });
