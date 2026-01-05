@@ -38,7 +38,7 @@ AFRAME.registerComponent('markers_start',{
 			var textEl = document.createElement('a-entity');
 			
 			textEl.setAttribute('id','text');
-			textEl.setAttribute('text',{color: 'red', align: 'center', value: "MARKER DETECTED", width: '5.5'});
+			textEl.setAttribute('text',{color: 'red', align: 'center', value: "Why are you gay?", width: '5.5'});
 			textEl.object3D.position.set(0, 0.7, 0);
 			textEl.object3D.rotation.set(-90, 0, 0);
 
