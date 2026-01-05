@@ -48,19 +48,19 @@ AFRAME.registerComponent('markers_start',{
 			  console.log('MODEL LOADED');
 			
 			  modelEl.object3D.position.set(0, 0.1, 0);
-			  modelEl.object3D.rotation.set(-90, 0, 0);
-			  modelEl.object3D.scale.set(0.3, 0.3, 0.3);
+			  modelEl.object3D.rotation.set(0, 0, 0);
+			  modelEl.object3D.scale.set(0.2, 0.2, 0.2);
 			});
 
 			// Optional rotation animation
-			// modelEl.setAttribute('animation', {
-			//   property: 'rotation',
-			//   to: '-90 360 0',
-			//   loop: true,
-			//   dur: 4000,
-			//   easing: 'linear'
-			// }
-			// );
+			modelEl.setAttribute('animation', {
+			  property: 'rotation',
+			  to: '0 360 0',
+			  loop: true,
+			  dur: 4000,
+			  easing: 'linear'
+			}
+			);
 
 		}
 	}
