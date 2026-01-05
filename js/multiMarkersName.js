@@ -53,13 +53,14 @@ AFRAME.registerComponent('markers_start',{
 			});
 
 			// Optional rotation animation
-			modelEl.setAttribute('animation', {
-			  property: 'rotation',
-			  to: '-90 360 0',
-			  loop: true,
-			  dur: 4000,
-			  easing: 'linear'
-			});
+			// modelEl.setAttribute('animation', {
+			//   property: 'rotation',
+			//   to: '-90 360 0',
+			//   loop: true,
+			//   dur: 4000,
+			//   easing: 'linear'
+			// }
+			// );
 
 		}
 	}
