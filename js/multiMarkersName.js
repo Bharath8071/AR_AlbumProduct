@@ -35,10 +35,10 @@ AFRAME.registerComponent('markers_start',{
 			sceneEl.appendChild(markerEl);
 
 			// Create a 3D model
-			var modelEl = document.createElement('a-gltf-model');
+			var modelEl = document.createElement('a-glb-model');
 					
 			// Path to your 3D file
-			modelEl.setAttribute('src', '3dmodel\pikachu_amiibo.glb');
+			modelEl.setAttribute('src', '3dmodel/pikachu_amiibo.glb');
 					
 			// Position model slightly above marker
 			modelEl.object3D.position.set(0, 0.1, 0);
