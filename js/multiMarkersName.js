@@ -38,7 +38,7 @@ AFRAME.registerComponent('markers_start',{
 			var modelEl = document.createElement('a-gltf-model');
 
 			// Correct path (make sure this file exists)
-			modelEl.setAttribute('src', '3dmodel/pikachu_amiibo.glb');
+			modelEl.setAttribute('src', 'resources/3dmodel/pikachu_amiibo.glb');
 
 			// Append FIRST (important)
 			markerEl.appendChild(modelEl);
