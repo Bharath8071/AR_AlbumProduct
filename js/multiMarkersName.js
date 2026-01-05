@@ -34,15 +34,32 @@ AFRAME.registerComponent('markers_start',{
 			markerEl.setAttribute('registerevents','');
 			sceneEl.appendChild(markerEl);
 
-			//Adding text to each marker
-			var textEl = document.createElement('a-entity');
-			
-			textEl.setAttribute('id','text');
-			textEl.setAttribute('text',{color: 'red', align: 'center', value: "Why are you gay?", width: '5.5'});
-			textEl.object3D.position.set(0, 0.7, 0);
-			textEl.object3D.rotation.set(-90, 0, 0);
-
-			markerEl.appendChild(textEl);
+			// Create a 3D model
+			var modelEl = document.createElement('a-gltf-model');
+					
+			// Path to your 3D file
+			modelEl.setAttribute('src', '3dmodel\pikachu_amiibo.glb');
+					
+			// Position model slightly above marker
+			modelEl.object3D.position.set(0, 0.1, 0);
+					
+			// Rotate to lie flat on marker
+			modelEl.object3D.rotation.set(-90, 0, 0);
+					
+			// Scale model (adjust as needed)
+			modelEl.object3D.scale.set(0.3, 0.3, 0.3);
+					
+			// Optional: rotate animation
+			modelEl.setAttribute('animation', {
+			property: 'rotation',
+			to: '-90 360 0',
+			loop: true,
+			dur: 4000,
+			easing: 'linear'
+			});
+		
+			// Attach model to marker
+			markerEl.appendChild(modelEl);
 		}
 	}
 });
@@ -50,17 +67,18 @@ AFRAME.registerComponent('markers_start',{
 
 //Detect marker found and lost
 AFRAME.registerComponent('registerevents', {
-		init: function () {
-			const marker = this.el;
-
-			marker.addEventListener("markerFound", ()=> {
-				var markerId = marker.id;
-				console.log('Marker Found: ', markerId);
-			});
-
-			marker.addEventListener("markerLost",() =>{
-				var markerId = marker.id;
-				console.log('Marker Lost: ', markerId);
-			});
-		},
-	});
+	init: function () {
+	  const marker = this.el;
+  
+	  marker.addEventListener("markerFound", () => {
+		console.log('Marker Found:', marker.id);
+		marker.object3D.visible = true;
+	  });
+  
+	  marker.addEventListener("markerLost", () => {
+		console.log('Marker Lost:', marker.id);
+		marker.object3D.visible = false;
+	  });
+	}
+  });
+  
