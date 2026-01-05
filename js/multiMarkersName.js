@@ -21,7 +21,7 @@ AFRAME.registerComponent('markers_start',{
 
 		// Single marker setup
 		// markersURLArray.push("resources/markers/target.patt");
-		markersURLArray.push("resources/markers/target.patt");
+		markersURLArray.push("resources/markers/pattern-microqr.patt");
 		markersNameArray.push("D5-A2");
 
 		for(var k=0; k<1; k++)
