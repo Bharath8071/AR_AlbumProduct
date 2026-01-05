@@ -34,32 +34,33 @@ AFRAME.registerComponent('markers_start',{
 			markerEl.setAttribute('registerevents','');
 			sceneEl.appendChild(markerEl);
 
-			// Create a 3D model
-			var modelEl = document.createElement('a-glb-model');
+			// Create a 3D model (CORRECT TAG)
+			var modelEl = document.createElement('a-gltf-model');
 					
-			// Path to your 3D file
-			modelEl.setAttribute('src', '3dmodel/pikachu_amiibo.glb');
+			// Correct path (make sure this file exists)
+			modelEl.setAttribute('src', 'resources/models/pikachu_amiibo.glb');
 					
-			// Position model slightly above marker
-			modelEl.object3D.position.set(0, 0.1, 0);
-					
-			// Rotate to lie flat on marker
-			modelEl.object3D.rotation.set(-90, 0, 0);
-					
-			// Scale model (adjust as needed)
-			modelEl.object3D.scale.set(0.3, 0.3, 0.3);
-					
-			// Optional: rotate animation
-			modelEl.setAttribute('animation', {
-			property: 'rotation',
-			to: '-90 360 0',
-			loop: true,
-			dur: 4000,
-			easing: 'linear'
-			});
-		
-			// Attach model to marker
+			// Append FIRST (important)
 			markerEl.appendChild(modelEl);
+					
+			// Wait until model is loaded
+			modelEl.addEventListener('model-loaded', () => {
+			  console.log('MODEL LOADED');
+			
+			  modelEl.object3D.position.set(0, 0.1, 0);
+			  modelEl.object3D.rotation.set(-90, 0, 0);
+			  modelEl.object3D.scale.set(0.3, 0.3, 0.3);
+			});
+			
+			// Optional rotation animation
+			modelEl.setAttribute('animation', {
+			  property: 'rotation',
+			  to: '-90 360 0',
+			  loop: true,
+			  dur: 4000,
+			  easing: 'linear'
+			});
+			
 		}
 	}
 });
